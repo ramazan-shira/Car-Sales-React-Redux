@@ -24,16 +24,20 @@ const CarSales = () => {
   return (
     <div className="car-shop">
       <div className="car-features">
-        <div className="car-card sales" key={selectedCar.id}>
-          <img src={selectedCar.image} alt={selectedCar.name} />
-          <h2>{selectedCar.name}</h2>
-          <p>Amount: ${selectedCar.price}</p>
-          <h4>
-            Total Amount: ${Number(selectedCar.price) + Number(additionalPrice)}
-          </h4>
-          <AddedFeatures addedFeatures={selectedCar.features} />
+        <div className="car-card-info">
+          <div className="car-card sales" key={selectedCar.id}>
+            <img src={selectedCar.image} alt={selectedCar.name} />
+            <h2>{selectedCar.name}</h2>
+            <p>Amount: ${selectedCar.price}</p>
+            <h4>
+              Total Amount: $
+              {Number(selectedCar.price) + Number(additionalPrice)}
+            </h4>
+          </div>
+          <div className="added-features">
+            <AddedFeatures addedFeatures={selectedCar.features} />
+          </div>
         </div>
-
         <div className="additional-features">
           <h4>Additional Features</h4>
           {additionalFeatures?.length ? (
